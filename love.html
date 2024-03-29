@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yes or No</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: lightpink;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    h2 {
+        color: #666;
+    }
+
+    img {
+        width: 200px;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .hidden {
+        display: none;
+    }
+    #yesButton, #noButton{
+    background: white;
+    padding:8px 16px;
+    border:none;
+    border-radius:5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Do you love me?😊</h1>
+    <h2>Please say yes!</h2>
+    <button id="yesButton" >Yes</button>
+    <button id="noButton">No</button>
+    <img id="image" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmNzZTFsMWlmNWNqYjVuN2IxaTA0aGp3ZG13ZGc3MDh3aHdkMzFuZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif" alt="Placeholder Image">
+</div>
+
+<script>
+    let clickCount = 0;
+
+    const yesButton = document.getElementById('yesButton');
+    const noButton = document.getElementById('noButton');
+    const heading = document.querySelector('h1');
+    const subheading = document.querySelector('h2');
+    const image = document.getElementById('image');
+
+    const imageUrls = [
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWZsMDB1dGI5N2djNjk4OHE4bDRudzd6YmIzZ3IyY2oxaGczZTZwbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gDfteqLchLcRTtjAD7/giphy.gif',
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMTltY3oxb2hxa3g1bmQ1cmthYm5lcnBpMWM1ZWdpbXhtaWFobTRjOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/M90mJvfWfd5mbUuULX/giphy.gif',
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWg4Y3Frc3locThqN3Z0OTUzN2dyZHQxY3F3Ym92bzFnN3RycHE5bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/eiRpSPB8OSGVcbkOIJ/giphy.gif',
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG54c3J1cXNybThtb2VycGpmbW5paHppcDB0Z2Njd2xxMjN3MXJoMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6gDZ9unSrDk3EuR2/giphy.gif',
+        'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnVzZ3U1N2JodG1rMTU5dHVhOHYzM3liaDF3eDR1eGJ1N3YweWgyYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9X8UlqKhaSPz4n7BkW/giphy.gif',
+        
+    ];
+
+    noButton.addEventListener('click', () => {
+        clickCount++;
+        if (clickCount < 5) {
+            heading.textContent = "Soch l0 acche se?";
+            subheading.textContent = `Click "yes".`;
+            image.src = imageUrls[clickCount ];
+        }
+        if (clickCount === 4) {
+            heading.textContent = "How about now?";
+            subheading.textContent = `Please click "Yes" now.`;
+            noButton.style.display = "none"; 
+            yesButton.style.display = "inline-block";
+          
+        }
+    });
+
+    yesButton.addEventListener('click', () => {
+        heading.textContent = "	Hehe I knew it!";
+        subheading.textContent = "I love you";
+          image.src = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGM3MW92Zms4a3ZtamxibnZidHB1d3FoMWVzdmE3bzhxZWppaWN2OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/bA5cblwksWXDOwSzUI/giphy.gif";
+        yesButton.disabled = true;
+        noButton.disabled = true;
+        yesButton.style.display = "none";
+        noButton.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
